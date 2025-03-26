@@ -33,11 +33,20 @@ public class PatrolState : IState
 
     public void Execute()
     {
-        throw new System.NotImplementedException();
+       if (aIController.CanSeePlayer())
+            {
+            aIController.StateMachine.TransitionToState(StateType.Chase);
+            return;
+            }
+            if (!aIController.Agent.pathPending &&
+            aIController.Agent.remainingDistance <= aIController.Agent.stoppingDistance)
+            {
+            MoveToNextWayPoint();
+            }
+
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
     }
 }
