@@ -27,7 +27,17 @@ public class PatrolState : IState
             return;
         }
 
-        aIController.Agent.destination = aIController.Waypoints[currentWaypointIndex].position;
+        aIController.Agent.destination = aIController.Waypoints[currentWayPointIndex].position;
         currentWayPointIndex = (currentWayPointIndex + 1) % aIController.Waypoints.Length;
    }
+
+    public void Execute()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void Exit()
+    {
+        throw new System.NotImplementedException();
+    }
 }
